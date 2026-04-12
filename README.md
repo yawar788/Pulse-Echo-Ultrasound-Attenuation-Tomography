@@ -36,3 +36,35 @@ and select the notebooks (e.g., <a href="Attenuation_tomography.ipynb">Attenuati
 
 This public version of the code is written to use the ultrasound signals computed from the <a href="http://www.k-wave.org/">k-Wave</a> open-source wave propagation simulator. The Matlab script used to generate the necessary data can be found in <a href="data/Script_kWave_simulation.m">./data/Script_kWave_simulation.m </a>.
 
+
+---
+
+## Simulation Instructions (k-Wave)
+
+### Requirements
+- MATLAB with k-Wave toolbox (v1.4.1 tested)
+- GPU with CUDA support recommended (CPU also supported)
+
+### Step 1 — Generate acquisition data
+Run in MATLAB:
+```matlab
+cd('./data')
+run('Script_kWave_simulation.m')
+```
+Generates: `acquisition_1.mat` ... `acquisition_5.mat`
+
+### Step 2 — Generate calibration data
+Run in MATLAB:
+```matlab
+cd('./data')
+run('Script_kWave_calibration.m')
+```
+Generates: `calibration_acquisition_1.mat` ... `calibration_acquisition_5.mat`
+
+> **GPU users:** Set DATA_CAST = 'gpuArray-single' at top of both scripts.
+> **CPU users:** Set DATA_CAST = 'single' (default in this repo).
+
+## Running notebooks (in order)
+1. Compute_calibration_data.ipynb
+2. Attenuation_tomography.ipynb
+
