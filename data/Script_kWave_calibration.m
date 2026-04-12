@@ -45,7 +45,7 @@ alpha_coeff_map = alpha_coeff0 * ones(Nx, Ny);
 
 % make circular attenuating inclusion 
 region1 = makeDisc(Nx, Ny, 610, 0, 200, 'False');
-alpha_coeff_map(region1 == 1) = 1.0;
+% alpha_coeff_map(region1 == 1) = 1.0; % disabled for calibration
 
 % assign to the medium inputs
 medium.sound_speed = sound_speed_map;
@@ -150,7 +150,7 @@ properties.angles = steering_angles;
 
 
 folder = './';
-filename = [folder, 'acquisition_', num2str(ireal),'.mat']
+filename = [folder, 'calibration_acquisition_', num2str(ireal),'.mat']
 
 
 % save the scan lines to disk
