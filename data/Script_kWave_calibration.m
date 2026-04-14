@@ -29,7 +29,7 @@ medium.alpha_mode = 'no_dispersion';
 
 rng(20)
 
-for ireal = 2:5
+for ireal = 1:1
 
 % define a random distribution of scatterers for the medium
 background_map_mean = 1;
