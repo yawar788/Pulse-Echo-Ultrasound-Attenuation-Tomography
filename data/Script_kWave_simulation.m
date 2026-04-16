@@ -29,7 +29,7 @@ medium.alpha_mode = 'no_dispersion';
 
 rng(20)
 
-for ireal = 1:1
+for ireal = 1:5
 
 % define a random distribution of scatterers for the medium
 background_map_mean = 1;
@@ -101,7 +101,7 @@ sensor.mask(x_offset, start_index:1:start_index + num_elements - 1) = 1;
 %% Define transmit angles and run all:
 
 % range of steering angles 
-steering_angles = -30:5:30;
+steering_angles = -30:0.5:30;
 
 % preallocate output
 nangles = length(steering_angles);
