@@ -52,7 +52,7 @@ help kWaveGrid
 
 5. Open Anaconda Prompt (or terminal) and navigate to the project folder:
 ```bash
-cd D:\attomo
+cd /d D:\attomo
 ```
 6. Create the GPU conda environment:
 ```bash
