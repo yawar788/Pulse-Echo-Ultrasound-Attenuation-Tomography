@@ -212,7 +212,7 @@ The following figures from the paper are reproduced by this pipeline:
 conda env create -f environment_attomo_gpu.yml
 conda activate attomo
 pip install -e .
-cd D:\attomo
+cd /d D:\attomo
 jupyter notebook
 ```
 
