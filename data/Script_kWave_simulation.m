@@ -3,7 +3,7 @@
 clear all; clc; close all;
 
 % simulation settings
-DATA_CAST       = 'single';     % set to 'single' or 'single' to speed up computations
+DATA_CAST       = 'single';     % set to 'single' or 'gpuArray-single' to speed up computations
 
 
 %% CREATE MESHGRID
@@ -12,10 +12,10 @@ DATA_CAST       = 'single';     % set to 'single' or 'single' to speed up comput
 pml_x_size = 20;                % [grid points]
 pml_y_size = 20;                % [grid points]
 
-Nx = 1024 - 2*pml_x_size;     % [grid points]
-Ny = 1100 - 2*pml_y_size;     % [grid points] 
-dx = 50e-6;  % # grid size in x
-dy = 50e-6;  % # grid size in y
+Nx = 2048 - 2*pml_x_size;     % [grid points]
+Ny = 2200  - 2*pml_y_size;     % [grid points] 
+dx = 25e-6;  % # grid size in x
+dy = 25e-6;  % # grid size in y
 
 kgrid = kWaveGrid(Nx, dx, Ny, dy);  % create grid class
 
@@ -29,7 +29,7 @@ medium.alpha_mode = 'no_dispersion';
 
 rng(20)
 
-for ireal = 2:5
+for ireal = 1:1
 
 % define a random distribution of scatterers for the medium
 background_map_mean = 1;
@@ -76,7 +76,7 @@ kgrid.makeTime(c0, 0.6, t_end);
 
 % define source mask for a linear transducer 
 pts_pitch = 8;                          % points per pitch
-num_elements = 128*pts_pitch;           % [grid points]
+num_elements = 256*pts_pitch;           % [grid points]
 x_offset = 10;                          % [grid points] (depth of transducer)
 source.u_mask = zeros(Nx, Ny);
 start_index = Ny/2 - round(1*num_elements/2) + 1;
@@ -101,7 +101,7 @@ sensor.mask(x_offset, start_index:1:start_index + num_elements - 1) = 1;
 %% Define transmit angles and run all:
 
 % range of steering angles 
-steering_angles = -30:2:30;
+steering_angles = -30:5:30;
 
 % preallocate output
 nangles = length(steering_angles);
@@ -159,4 +159,3 @@ save(filename, 'scan_lines', 'properties');
 %end
 
 end
-
