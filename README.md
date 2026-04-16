@@ -53,14 +53,6 @@ run('Script_kWave_simulation.m')
 ```
 Generates: `acquisition_1.mat` ... `acquisition_5.mat`
 
-### Step 2 — Generate calibration data
-Run in MATLAB:
-```matlab
-cd('./data')
-run('Script_kWave_calibration.m')
-```
-Generates: `calibration_acquisition_1.mat` ... `calibration_acquisition_5.mat`
-
 > **GPU users:** Set DATA_CAST = 'gpuArray-single' at top of both scripts.
 > **CPU users:** Set DATA_CAST = 'single' (default in this repo).
 
