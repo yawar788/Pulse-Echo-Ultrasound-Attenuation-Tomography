@@ -3,7 +3,7 @@
 clear all; clc; close all;
 
 % simulation settings
-DATA_CAST       = 'single';     % set to 'single' or 'gpuArray-single' to speed up computations
+DATA_CAST       = 'gpuArray-single';     % change to 'single' on CPU machine
 
 
 %% CREATE MESHGRID
