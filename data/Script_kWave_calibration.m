@@ -12,7 +12,7 @@
 
 clear all; clc; close all;
 
-DATA_CAST = 'single';   % change to 'gpuArray-single' on GPU machine
+DATA_CAST = 'gpuArray-single';   % change to 'single' on CPU machine
 
 %% CREATE MESHGRID
 
