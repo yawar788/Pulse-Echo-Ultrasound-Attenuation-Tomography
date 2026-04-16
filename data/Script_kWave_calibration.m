@@ -1,11 +1,11 @@
-%% Calibration simulation - homogeneous medium (no inclusion)
-% This is Script_kWave_simulation.m with two changes only:
-%   1. Inclusion is removed  (homogeneous medium)
-%   2. Output files saved as calibration_acquisition_<n>.mat
-%
+% =========================================================
+% GPU READY: DATA_CAST = 'gpuArray-single'
+% To run on CPU: change DATA_CAST to 'single' (line below)
+% Requires: k-Wave toolbox, MATLAB Parallel Computing Toolbox
+% =========================================================
+
 % Run this AFTER Script_kWave_simulation.m has finished.
 % Output is read by Compute_calibration_data.ipynb
-%
 % GPU toggle (line 9):
 %   'gpuArray-single'  ->  GPU
 %   'single'           ->  CPU
@@ -29,7 +29,7 @@ kgrid = kWaveGrid(Nx, dx, Ny, dy);
 %% MEDIUM PROPERTIES
 
 c0           = 1540;    % [m/s]
-alpha_coeff0 = 0.5;     % [dB/(MHz cm)]
+alpha_coeff0 = 0.2;    % [dB/(MHz cm)]
 alpha_power0 = 1.0;
 rho0         = 1000;    % [kg/m^3]
 
@@ -88,7 +88,7 @@ for ireal = 1:5
     sensor.mask(x_offset, start_index:1:start_index + num_elements - 1) = 1;
 
 
-    steering_angles = -30:0.5:30;   % 121 angles (full run)
+    steering_angles = -27.5:0.5:27.5;
 
     nangles    = length(steering_angles);
     scan_lines = zeros(kgrid.Nt, num_elements/pts_pitch, nangles);

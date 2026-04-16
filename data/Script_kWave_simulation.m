@@ -1,3 +1,9 @@
+% =========================================================
+% GPU READY: DATA_CAST = 'gpuArray-single'
+% To run on CPU: change DATA_CAST to 'single' (line below)
+% Requires: k-Wave toolbox, MATLAB Parallel Computing Toolbox
+% =========================================================
+
 %% Example 2D k-Wave
 
 clear all; clc; close all;
@@ -101,7 +107,7 @@ sensor.mask(x_offset, start_index:1:start_index + num_elements - 1) = 1;
 %% Define transmit angles and run all:
 
 % range of steering angles 
-steering_angles = -30:0.5:30;
+steering_angles = -27.5:0.5:27.5;
 
 % preallocate output
 nangles = length(steering_angles);
