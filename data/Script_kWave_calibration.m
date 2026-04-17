@@ -28,7 +28,7 @@ kgrid = kWaveGrid(Nx, dx, Ny, dy);
 
 %% MEDIUM PROPERTIES
 
-c0           = 1540;    % [m/s]
+c0           = 1480;    % [m/s]
 alpha_coeff0 = 0.2;    % [dB/(MHz cm)]
 alpha_power0 = 1.0;
 rho0         = 1000;    % [kg/m^3]
