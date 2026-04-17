@@ -149,7 +149,7 @@ Run the two notebooks **in order**. Both must be run before figures are produced
 ### Launch Jupyter
 ```bash
 conda activate attomo
-cd D:\attomo
+cd /d D:\attomo
 jupyter notebook
 ```
 Your browser will open automatically.
